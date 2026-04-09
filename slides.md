@@ -186,7 +186,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
   ```
   Cross-Origin-Embedder-Policy: credentialless
   Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
   ```
 
 - `Referrer-Policy` - steuert welche Informationen über die Herkunft einer Anfrage mitgeschickt werden
