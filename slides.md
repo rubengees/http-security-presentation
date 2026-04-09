@@ -218,3 +218,17 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
   ```
   X-XSS-Protection: 1; mode=block
   ```
+
+---
+
+# Integrationen
+
+- Header manuell setzen, beispielsweise in der nginx.conf
+
+  ```
+  add_header Content-Security-Policy "default-src 'self'; img-src 'self' example.com";
+  ```
+  
+- Für Node.js: [Helmet](https://www.npmjs.com/package/helmet)
+- Für Nuxt.js: [nuxt-security](https://nuxt.com/modules/security)
+- Für Spring: [Spring Security](https://docs.spring.io/spring-security/reference/features/exploits/headers.html)
