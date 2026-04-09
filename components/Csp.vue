@@ -20,7 +20,7 @@
       <CspSection title="XSS – eval()" @run="showEvalXss"> eval("alert('Hacked!')")</CspSection>
     </div>
 
-    <iframe v-if="iframeSrc" :src="iframeSrc" class="h-28 w-full rounded border border-slate-700" />
+    <iframe v-if="iframeSrc" :src="iframeSrc" class="h-56 w-full rounded border border-slate-700" />
   </div>
 </template>
 

@@ -137,3 +137,84 @@ worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/asse
 # CSP – Interaktives Beispiel
 
 <Csp />
+
+---
+
+# CSP – Interaktives Beispiel
+
+<UpgradeInsecureRequests />
+
+---
+
+# HSTS
+
+- Steht für "HTTP Strict Transport Security"
+- Erzwingt die Nutzung von HTTPS, auch wenn HTTP angefragt wird
+
+```
+Strict-Transport-Security: max-age=31536000; includeSubDomains;
+```
+
+---
+
+# HSTS - Preload List
+
+- Browser haben eine Liste von Domains die automatisch auf HTTPS umgestellt werden, auch wenn sie nicht erreichbar sind
+- Unter [https://hstspreload.org](https://hstspreload.org) können Domains zur Aufnahme in diese Liste eingereicht werden
+- Voraussetzungen:
+  - Domain muss über HTTPS erreichbar sein.
+  - Weiterleitung von HTTP auf HTTPS muss eingerichtet sein.
+  - HSTS Header mit `max-age` von mindestens einem Jahr, `includeSubDomains` und `preload` muss gesetzt sein.
+
+```
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
+```
+
+---
+
+# Verschiedene Header
+
+- `Permissions-Policy` - steuert den Zugriff auf Browser-APIs
+
+  ```
+  Permissions-Policy: geolocation=(self https://trusted-ad-network.com), microphone=()
+  ```
+
+- `Cross-Origin-Embedder-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy` - steuern die Isolation
+  von Ressourcen, ähnlich wie CSP, aber auf andere Aspekte bezogen
+
+  ```
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+  ```
+
+- `Referrer-Policy` - steuert welche Informationen über die Herkunft einer Anfrage mitgeschickt werden
+
+  ```
+  Referrer-Policy: no-referrer
+  ```
+
+- `X-Content-Type-Options` - verhindert das "MIME Sniffing" und erzwingt die Einhaltung des angegebenen Content-Types
+
+  ```
+  X-Content-Type-Options: nosniff
+  ```
+
+---
+
+# Verschiedene Header
+
+- `X-Frame-Options` - verhindert das Einbetten der Seite in einen Frame, um Clickjacking-Angriffe zu verhindern
+
+  <iframe src="/clickjacking.html" height="86" style="margin-bottom: 12px"></iframe>
+
+  ```
+  X-Frame-Options: DENY
+  ```
+
+- `X-XSS-Protection` - aktiviert die integrierte XSS-Schutzfunktion des Browsers (veraltet, nicht mehr empfohlen)
+
+  ```
+  X-XSS-Protection: 1; mode=block
+  ```
