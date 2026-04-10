@@ -20,6 +20,7 @@ Smartsquare Academy 04.2026
 - CSP
 - CSRF
 - HSTS
+- SRI
 - Weitere Header
 - Integrationen
 
@@ -190,6 +191,32 @@ Content-Security-Policy: default-src 'self'; report-to endpoint
   <input type="hidden" name="recipient" value="attacker" />
   <input type="hidden" name="amount" value="1000" />
 </form>
+```
+
+---
+
+# SRI
+
+- Steht für "Subresource Integrity"
+- Schützt vor manipulierten Ressourcen, die von Drittanbietern (z. B. CDNs) geladen werden
+- Der Browser vergleicht den Hash der geladenen Ressource mit dem erwarteten Hash
+- Funktioniert für `<script>` und `<link rel="stylesheet">` Elemente
+- Bei Cross-Origin-Ressourcen ist zusätzlich das `crossorigin`-Attribut nötig (CORS)
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue@3.5.32/dist/vue.global.min.js"
+        integrity="sha384-0X9gAYgyVr542tDbYjoB+/N5FmVmI3gYEI5l7gGbuGiR3FfE3AOvGaJ9v8VHbpyF"
+        crossorigin="anonymous"></script>
+```
+
+---
+
+# SRI - Integrity-Policy
+
+- `Integrity-Policy` erzwingt, dass alle geladenen Skripte und Stylesheets ein `integrity`-Attribut haben müssen
+
+```http
+Integrity-Policy: blocked-destinations=(script style)
 ```
 
 ---
