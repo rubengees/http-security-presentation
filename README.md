@@ -1,6 +1,7 @@
 # http-security
 
-German slides about http security topics like CORS and CSPs.
+German slides about http security topics like CORS and CSPs. Best viewed from localhost so that all interactive examples
+work.
 
 ## Setup
 
