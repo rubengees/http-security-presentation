@@ -255,7 +255,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
 
 - `X-Frame-Options` - verhindert das Einbetten der Seite in einen Frame, um Clickjacking-Angriffe zu verhindern
 
-  <iframe src="/clickjacking.html" height="86" style="margin-bottom: 12px"></iframe>
+  <Clickjacking />
 
   ```
   X-Frame-Options: DENY

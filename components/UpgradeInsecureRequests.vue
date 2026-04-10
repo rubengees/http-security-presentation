@@ -12,7 +12,7 @@
       <code v-if="enabled" class="text-xs text-slate-400">upgrade-insecure-requests</code>
     </div>
 
-    <iframe :src="iframeSrc" class="h-84 w-full rounded border border-slate-700" />
+    <iframe :src="iframeUrl" class="h-84 w-full rounded border border-slate-700" />
   </div>
 </template>
 
@@ -22,4 +22,5 @@ import { ref, computed } from "vue"
 const enabled = ref(false)
 
 const iframeSrc = computed(() => (enabled.value ? "/upgrade-insecure-csp.html" : "/upgrade-insecure.html"))
+const iframeUrl = computed(() => import.meta.env.BASE_URL + iframeSrc.value)
 </script>

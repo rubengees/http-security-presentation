@@ -32,10 +32,14 @@ const cspEnabled = ref(false)
 const iframeSrc = ref("")
 
 function showInlineXss() {
-  iframeSrc.value = cspEnabled.value ? "/inline-xss-csp.html" : "/inline-xss.html"
+  iframeSrc.value = import.meta.env.BASE_URL + (cspEnabled.value ? "/inline-xss-csp.html" : "/inline-xss.html")
 }
 
 function showEvalXss() {
-  iframeSrc.value = (cspEnabled.value ? "/eval-xss-csp.html" : "/eval-xss.html") + "?query='); alert('Hacked!"
+  iframeSrc.value =
+    import.meta.env.BASE_URL +
+    (cspEnabled.value ? "/eval-xss-csp.html" : "/eval-xss.html") +
+    "?query=" +
+    encodeURIComponent("'); alert('Hacked!")
 }
 </script>
