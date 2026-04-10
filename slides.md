@@ -146,6 +146,35 @@ worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/asse
 
 ---
 
+# CSP - Reporting
+
+- Verstöße gegen die CSP können an einen Server gemeldet werden, um Probleme zu erkennen und zu beheben
+- Dazu muss die `report-uri` oder `report-to` Direktive gesetzt werden
+
+```
+Reporting-Endpoints: endpoint="https://example.com/csp-reports"
+Content-Security-Policy: default-src 'self'; report-to endpoint
+```
+
+#### Beispiel eines CSP-Reportings (gekürzt)
+
+```json
+{
+  "age": 53531,
+  "body": {
+    "blockedURL": "inline",
+    "effectiveDirective": "script-src-elem",
+    "originalPolicy": "default-src 'self'; report-to endpoint",
+    "statusCode": 200
+  },
+  "type": "csp-violation",
+  "url": "https://example.com/csp-report",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+}
+```
+
+---
+
 # CSRF
 
 - Steht für "Cross-Site Request Forgery"
