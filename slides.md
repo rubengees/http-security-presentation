@@ -18,8 +18,10 @@ Smartsquare Academy 04.2024
 
 - CORS
 - CSP
-- Weitere Header
+- CSRF
 - HSTS
+- Weitere Header
+- Integrationen
 
 ---
 
