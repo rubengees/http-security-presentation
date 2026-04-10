@@ -10,7 +10,7 @@ duration: 60min
 
 # HTTP Security
 
-Smartsquare Academy 04.2024
+Smartsquare Academy 04.2026
 
 ---
 
