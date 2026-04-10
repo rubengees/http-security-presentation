@@ -21,6 +21,8 @@ jobs:
       - run: pnpm install
       - run: pnpm verify
       - run: pnpm build
+        env:
+          BASE_URL: /http-security-presentation
 
       - if: github.ref == 'refs/heads/main'
         name: Upload page
