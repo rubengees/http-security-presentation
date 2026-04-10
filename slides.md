@@ -146,6 +146,23 @@ worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/asse
 
 ---
 
+# CSRF
+
+- Steht für "Cross-Site Request Forgery"
+- Angreifer lockt Nutzer auf eine bösartige Seite, die dann im Hintergrund Anfragen an eine vertrauenswürdige Seite
+  sendet, auf der der Nutzer eingeloggt ist
+- Für uns meistens nicht relevant, da wir keine Cookies verwenden
+- Ansonsten: Schutz durch CSRF-Token, SameSite-Cookies oder `Sec-Fetch-Site` Header
+
+```html
+<form action="https://my-bank.example.org/transfer" method="POST">
+  <input type="hidden" name="recipient" value="attacker" />
+  <input type="hidden" name="amount" value="1000" />
+</form>
+```
+
+---
+
 # HSTS
 
 - Steht für "HTTP Strict Transport Security"
@@ -228,7 +245,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
   ```
   add_header Content-Security-Policy "default-src 'self'; img-src 'self' example.com";
   ```
-  
+
 - Für Node.js: [Helmet](https://www.npmjs.com/package/helmet)
 - Für Nuxt.js: [nuxt-security](https://nuxt.com/modules/security)
 - Für Spring: [Spring Security](https://docs.spring.io/spring-security/reference/features/exploits/headers.html)
