@@ -176,7 +176,7 @@ Content-Security-Policy: default-src 'self'; report-to endpoint
   },
   "type": "csp-violation",
   "url": "https://example.com/csp-report",
-  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+  "user_agent": "Mozilla/5.0 [...] Chrome/127.0.0.0 Safari/537.36"
 }
 ```
 
