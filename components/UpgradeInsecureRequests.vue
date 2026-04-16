@@ -18,9 +18,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
+import { baseUrl } from "../utils/baseUrl"
 
 const enabled = ref(false)
 
-const iframeSrc = computed(() => (enabled.value ? "/upgrade-insecure-csp.html" : "/upgrade-insecure.html"))
-const iframeUrl = computed(() => import.meta.env.BASE_URL + iframeSrc.value)
+const iframeSrc = computed(() => (enabled.value ? "upgrade-insecure-csp.html" : "upgrade-insecure.html"))
+const iframeUrl = computed(() => baseUrl(iframeSrc.value).href)
 </script>

@@ -3,5 +3,7 @@
 </template>
 
 <script setup lang="ts">
-const iframeSrc = import.meta.env.BASE_URL + "/clickjacking.html"
+import { baseUrl } from "../utils/baseUrl"
+
+const iframeSrc = baseUrl("clickjacking.html").href
 </script>

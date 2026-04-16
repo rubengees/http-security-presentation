@@ -27,19 +27,18 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import CspSection from "./CspSection.vue"
+import { baseUrl } from "../utils/baseUrl"
 
 const cspEnabled = ref(false)
 const iframeSrc = ref("")
 
 function showInlineXss() {
-  iframeSrc.value = import.meta.env.BASE_URL + (cspEnabled.value ? "/inline-xss-csp.html" : "/inline-xss.html")
+  iframeSrc.value = baseUrl(cspEnabled.value ? "inline-xss-csp.html" : "inline-xss.html").href
 }
 
 function showEvalXss() {
-  iframeSrc.value =
-    import.meta.env.BASE_URL +
-    (cspEnabled.value ? "/eval-xss-csp.html" : "/eval-xss.html") +
-    "?query=" +
-    encodeURIComponent("'); alert('Hacked!")
+  const evalUrl = baseUrl(cspEnabled.value ? "eval-xss-csp.html" : "eval-xss.html")
+  evalUrl.searchParams.set("query", "'); alert('Hacked!")
+  iframeSrc.value = evalUrl.href
 }
 </script>
