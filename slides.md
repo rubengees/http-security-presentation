@@ -43,7 +43,9 @@ Smartsquare Academy 04.2026
 # CORS
 
 - "Einfache" Anfragen werden normal geschickt und nachträglich abgelehnt, wenn Header fehlen
-  - Einfach ist eine Anfrage, wenn es ein GET, HEAD oder POST ist und nur eine kleine Menge an ausgewählten Headern gesetzt ist.
+  - Einfach ist eine Anfrage, wenn es ein GET, HEAD oder POST ist und nur eine kleine Menge an ausgewählten Headern
+    gesetzt ist (+ einige
+    [weitere Einschränkungen](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS#simple_requests)).
 - Andere Anfragen lösen erst eine Preflight-OPTIONS Anfrage aus die vorher die Erlaubnis prüft
 - Die `Access-Control-Allow-*` Header steuern die Erlaubnis
 
@@ -204,9 +206,11 @@ Content-Security-Policy: default-src 'self'; report-to endpoint
 - Bei Cross-Origin-Ressourcen ist zusätzlich das `crossorigin`-Attribut nötig (CORS)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue@3.5.32/dist/vue.global.min.js"
-        integrity="sha384-0X9gAYgyVr542tDbYjoB+/N5FmVmI3gYEI5l7gGbuGiR3FfE3AOvGaJ9v8VHbpyF"
-        crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/vue@3.5.32/dist/vue.global.min.js"
+  integrity="sha384-0X9gAYgyVr542tDbYjoB+/N5FmVmI3gYEI5l7gGbuGiR3FfE3AOvGaJ9v8VHbpyF"
+  crossorigin="anonymous"
+></script>
 ```
 
 ---
@@ -281,6 +285,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;
 # Verschiedene Header
 
 - `X-Frame-Options` - verhindert das Einbetten der Seite in einen Frame, um Clickjacking-Angriffe zu verhindern
+  (veraltet, besser über CSP `frame-ancestors` steuern)
 
   <Clickjacking />
 
