@@ -12,6 +12,8 @@ duration: 60min
 
 Smartsquare Academy 04.2026
 
+[GitHub](https://rubengees.github.io/http-security-presentation)
+
 ---
 
 # Agenda
