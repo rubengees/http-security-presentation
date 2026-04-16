@@ -30,7 +30,7 @@ Smartsquare Academy 04.2026
 
 # CORS
 
-<img src="/assets/cors-meme.jpg" alt="CORS meme" style="height: inherit; width: 100%; object-fit: contain;" />
+<img src="/assets/cors-meme.jpg" alt="CORS meme" style="height: 420px; width: 100%; object-fit: contain;" />
 
 ---
 
